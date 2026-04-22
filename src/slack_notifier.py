@@ -4,7 +4,6 @@ import httpx
 
 
 def _extract_bullets(visual: dict, bottom_cta: str) -> list[str]:
-    """visual 데이터에서 bullet 포인트 추출. 최소 3개 보장."""
     vtype = visual.get("type", "text")
     bullets = []
 
@@ -37,7 +36,6 @@ def _extract_bullets(visual: dict, bottom_cta: str) -> list[str]:
         if body:
             bullets.append(f"• {body}")
 
-    # bottom_cta를 마지막 bullet로 항상 추가
     if bottom_cta:
         bullets.append(f"• {bottom_cta}")
 
@@ -71,8 +69,7 @@ def send_notification(
         visual = slide.get("visual", {})
 
         lines.append(f"*{i}. {heading}*")
-        bullets = _extract_bullets(visual, bottom_cta)
-        lines.extend(bullets)
+        lines.extend(_extract_bullets(visual, bottom_cta))
         lines.append("")
 
     if instagram_posted:
@@ -82,6 +79,11 @@ def send_notification(
     lines.append(f"🔗 원본 보기: {original_url}")
 
     blocks = [
+        {
+            "type": "image",
+            "image_url": cover_url,
+            "alt_text": title,
+        },
         {
             "type": "section",
             "text": {"type": "mrkdwn", "text": "\n".join(lines)},
