@@ -22,7 +22,7 @@ from state import mark_processed
 
 
 def _check_required_env() -> None:
-    required = ["ANTHROPIC_API_KEY", "GITHUB_USER", "GITHUB_REPO"]
+    required = ["ANTHROPIC_API_KEY", "USER", "REPO"]
     missing = [k for k in required if not os.environ.get(k)]
     if missing:
         print(f"[오류] 필수 환경변수 누락: {', '.join(missing)}")
@@ -48,8 +48,8 @@ def _git_push(message: str, paths: list[str]) -> bool:
 
 
 def _build_raw_urls(png_paths: list[Path]) -> list[str]:
-    github_user = os.environ["GITHUB_USER"]
-    github_repo = os.environ["GITHUB_REPO"]
+    github_user = os.environ["USER"]
+    github_repo = os.environ["REPO"]
     repo_root = Path(__file__).parent.parent
     return [
         f"https://raw.githubusercontent.com/{github_user}/{github_repo}/main/{p.relative_to(repo_root)}"

@@ -19,8 +19,8 @@ def _check_token_error(response: dict) -> None:
 
 def _create_github_issue() -> None:
     github_token = os.environ.get("GITHUB_TOKEN", "")
-    github_user = os.environ.get("GITHUB_USER", "")
-    github_repo = os.environ.get("GITHUB_REPO", "")
+    github_user = os.environ.get("USER", "")
+    github_repo = os.environ.get("REPO", "")
     if not all([github_token, github_user, github_repo]):
         return
     httpx.post(

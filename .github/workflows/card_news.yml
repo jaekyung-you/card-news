@@ -42,5 +42,5 @@ jobs:
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
+          USER: ${{ vars.USER }}
+          REPO: ${{ vars.REPO }}

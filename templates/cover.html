@@ -8,119 +8,92 @@
   body {
     width: 1080px;
     height: 1080px;
-    background-color: #141414;
+    background-color: #FAF6F1;
     font-family: 'Noto Sans KR', sans-serif;
-    color: #FFFFFF;
-    overflow: hidden;
-    position: relative;
-  }
-  .geo-ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(212,169,122,0.10);
-  }
-  .geo-dot {
-    position: absolute;
-    border-radius: 50%;
-    background-color: #D4A97A;
-  }
-  .geo-line {
-    position: absolute;
-    background-color: rgba(212,169,122,0.07);
-  }
-  .content {
-    position: absolute;
-    inset: 0;
-    padding: 72px 80px;
+    color: #2D2D2D;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 72px 88px;
+    overflow: hidden;
   }
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: auto;
   }
   .label-pill {
-    background-color: #D4A97A;
-    color: #141414;
-    font-size: 17px;
+    display: inline-block;
+    background-color: #2D2D2D;
+    color: #FAF6F1;
+    font-size: 13px;
     font-weight: 700;
-    padding: 10px 24px;
+    padding: 9px 20px;
     border-radius: 100px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-  }
-  .slide-num {
-    font-size: 18px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.22);
-    letter-spacing: 0.15em;
   }
   .center {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 220px;
+    padding-bottom: 24px;
+  }
+  .eyebrow {
+    font-size: 15px;
+    font-weight: 700;
+    color: #D4734A;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
   }
   .title {
-    font-size: 72px;
+    font-size: 76px;
     font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     word-break: keep-all;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+    color: #2D2D2D;
   }
-  .title .accent { color: #D4A97A; }
+  .title .accent { color: #D4734A; }
   .subtitle {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 400;
-    color: rgba(255,255,255,0.42);
-    line-height: 1.6;
+    color: rgba(45,45,45,0.52);
+    line-height: 1.55;
     word-break: keep-all;
+    max-width: 700px;
   }
   .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
   .date {
-    font-size: 17px;
-    color: rgba(255,255,255,0.28);
-    letter-spacing: 0.05em;
+    font-size: 15px;
+    color: rgba(45,45,45,0.32);
+    letter-spacing: 0.04em;
   }
   .brand {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
-    color: rgba(255,255,255,0.16);
-    letter-spacing: 0.18em;
+    color: rgba(45,45,45,0.22);
+    letter-spacing: 0.22em;
   }
 </style>
 </head>
 <body>
-  <!-- Geometric decoration (right side) -->
-  <div class="geo-ring" style="width:580px;height:580px;right:-240px;top:-240px;"></div>
-  <div class="geo-ring" style="width:360px;height:360px;right:-120px;top:-120px;border-color:rgba(212,169,122,0.06);"></div>
-  <div class="geo-ring" style="width:160px;height:160px;right:60px;top:60px;border-color:rgba(212,169,122,0.15);"></div>
-  <div class="geo-dot" style="width:10px;height:10px;right:152px;top:318px;opacity:0.48;"></div>
-  <div class="geo-dot" style="width:6px;height:6px;right:90px;top:462px;opacity:0.28;"></div>
-  <div class="geo-dot" style="width:14px;height:14px;right:268px;top:184px;opacity:0.18;"></div>
-  <div class="geo-line" style="width:1px;height:180px;right:204px;top:360px;"></div>
-
-  <div class="content">
-    <div class="header">
-      <div class="label-pill">ANTHROPIC NEWS</div>
-      <div class="slide-num">01</div>
-    </div>
-    <div class="center">
-      <div class="title">{{ title_html }}</div>
-      <div class="subtitle">{{ subtitle }}</div>
-    </div>
-    <div class="footer">
-      <div class="date">{{ date }}</div>
-      <div class="brand">ANTHROPIC</div>
-    </div>
+  <div class="header">
+    <div class="label-pill">ANTHROPIC NEWS</div>
+  </div>
+  <div class="center">
+    <div class="eyebrow">NEW RELEASE</div>
+    <div class="title">{{ title_html }}</div>
+    <div class="subtitle">{{ subtitle }}</div>
+  </div>
+  <div class="footer">
+    <div class="date">{{ date }}</div>
+    <div class="brand">ANTHROPIC</div>
   </div>
 </body>
 </html>
