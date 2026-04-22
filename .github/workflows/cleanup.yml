@@ -1,0 +1,36 @@
+name: Cleanup Old Output
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 매주 일요일 09:00 KST (00:00 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Delete output folders older than 30 days
+        run: |
+          find output/ -maxdepth 1 -type d -mtime +30 -exec rm -rf {} \;
+
+      - name: Commit and push if changed
+        run: |
+          git add output/
+          if git diff --cached --quiet; then
+            echo "삭제할 오래된 폴더 없음"
+          else
+            git commit -m "chore: cleanup output folders older than 30 days"
+            git push
+          fi

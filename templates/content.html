@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1080px;
+    background-color: #191919;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px;
+    overflow: hidden;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .slide-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #D4A97A;
+    letter-spacing: 0.12em;
+  }
+  .brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+  .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .heading {
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    margin-bottom: 40px;
+  }
+  .accent-bar {
+    width: 50px;
+    height: 4px;
+    background-color: #D4A97A;
+    margin-bottom: 40px;
+  }
+  .body {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+    word-break: keep-all;
+  }
+  .progress {
+    display: flex;
+    gap: 8px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+  }
+  .dot.active {
+    background-color: #D4A97A;
+    width: 24px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="slide-num">{{ '%02d' % slide_number }} / {{ '%02d' % total_slides }}</div>
+    <div class="brand">ANTHROPIC</div>
+  </div>
+  <div class="center">
+    <div class="heading">{{ heading }}</div>
+    <div class="accent-bar"></div>
+    <div class="body">{{ body }}</div>
+  </div>
+  <div class="progress">
+    {% for i in range(total_slides) %}
+    <div class="dot {% if i == slide_number - 1 %}active{% endif %}"></div>
+    {% endfor %}
+  </div>
+</body>
+</html>
