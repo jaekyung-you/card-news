@@ -66,10 +66,11 @@ python3 -c "
 import sys, os; sys.path.insert(0, 'src')
 from dotenv import load_dotenv; load_dotenv()
 from slack_notifier import send_notification
-# cover_url = raw GitHub URL of slide_01.png
+# cover_url = raw GitHub URL of slide_01.png (커버 이미지로 image 블록 표시)
 # send_notification(cover_url, card_data, slide_count, instagram_posted)
 "
 ```
+Slack 메시지 구조: 커버 이미지 → 제목+부제목 → 슬라이드별 상세 bullet → 원본 URL(미리보기 포함)
 
 **Instagram 게시** (INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID 설정 시):
 `src/instagram.py`의 `post_carousel(image_urls, caption)` 호출.

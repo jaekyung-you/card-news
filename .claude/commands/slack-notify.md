@@ -7,6 +7,8 @@
 
 ### 구조
 ```
+[커버 이미지 — image 블록, slide_01.png GitHub raw URL]
+
 *{제목}*
 _{부제목}_
 
@@ -19,10 +21,11 @@ _{부제목}_
 *2. ...*
 ...
 
-🔗 원본 보기: {URL}   ← 반드시 raw URL (썸네일 자동 표시)
+🔗 원본 보기: {URL}   ← raw URL → Slack이 자동으로 사이트 미리보기 카드 표시
 ```
 
 ### 필수 조건
+- 메시지 최상단에 **image 블록** (`cover_url` = slide_01.png GitHub raw URL)
 - 소제목(섹션)은 **최소 4개** (`slides[:6]` 범위 내)
 - 섹션당 bullet point **최소 3개** — visual 데이터 + bottom_cta로 채움
 - visual_type별 bullet 추출 방식:
@@ -31,8 +34,9 @@ _{부제목}_
   - `comparison` → `• 이전: *{bad.label}*`, `• 이후: *{good.label}*`
   - `text` → `• {body}`
 - `bottom_cta`는 해당 섹션의 마지막 bullet로 **항상** 추가
-- URL은 `<URL|텍스트>` 하이퍼링크 형식 **금지** → raw URL만 사용 (Slack 썸네일 unfurl용)
+- URL은 `<URL|텍스트>` 하이퍼링크 형식 **금지** → raw URL만 사용 (Slack unfurl용)
 - `unfurl_links: True`를 payload에 포함
+- blocks 순서: `image` 블록 → `section` 블록 (텍스트)
 
 ## 테스트 실행
 
