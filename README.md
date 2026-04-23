@@ -85,6 +85,9 @@ _코딩·비전·설계 전 영역에서 이전 세대를 압도_
 - `bottom_cta`(핵심 인사이트)를 각 섹션 마지막 bullet로 항상 포함
 - URL은 raw URL로만 작성 (썸네일 unfurl)
 
+<img width="600" alt="스크린샷 2026-04-23 오후 12 39 44" src="https://github.com/user-attachments/assets/d16b48d2-2cb3-4148-bca9-f8da1e052924" />
+
+
 ---
 
 ## 로컬 실행
