@@ -116,10 +116,7 @@ python src/main.py
 | `ANTHROPIC_API_KEY` | ✅ | 카드뉴스 JSON 생성 (Claude API) |
 | `USER` | ✅ | GitHub 사용자명 (raw URL 생성용) |
 | `REPO` | ✅ | GitHub 레포명 (raw URL 생성용) |
-| `SLACK_WEBHOOK_URL` | 선택 | Slack Incoming Webhook URL |
-| `INSTAGRAM_ACCESS_TOKEN` | 선택 | Instagram Graph API 토큰 |
-| `INSTAGRAM_USER_ID` | 선택 | Instagram 계정 ID |
-| `GITHUB_TOKEN` | CI | Instagram 토큰 만료 시 Issue 자동 생성 |
+| `SLACK_WEBHOOK_URL` | ✅ | Slack Incoming Webhook URL |
 
 ---
 
